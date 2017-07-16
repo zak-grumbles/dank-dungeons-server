@@ -1,0 +1,25 @@
+version: "2"
+services:
+    web:
+        depends_on: 
+            - mongo
+        build: .
+        ports:
+            - "3001:3001"
+        links:
+            - mongo
+        container_name: gaming-capstone-node
+    mongo:
+        image: mongo
+        depends_on:
+            - mongodata
+        container_name: gaming-capstone-mongo
+        volumes_from:
+            - mongodata
+    mongodata:
+        image: mongo
+        volumes:
+            - /var/lib/mongodb:/data/db
+            - /home/grumbles/Capstone/capstone_backups:/backups
+        command: echo 'Data Container for Auth_MongoDB'
+        container_name: gaming-capstone-data
