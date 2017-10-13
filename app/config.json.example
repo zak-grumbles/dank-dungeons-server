@@ -1,7 +1,7 @@
 {
     "db": {
         "host": "hostname here",
-        "database": "db name here",
+        "database": "db name here"
     },
     "tokens": {
         "secret": "secret key for token verification here"
